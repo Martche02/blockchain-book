@@ -19,7 +19,8 @@ class Blockchain(object):
         # Create the genesis block
         logger.info("Creating genesis block")
         self.chain.append(self.new_block())
-
+    def maths (index):
+        # Math operation in "index" values
     def new_block(self):
         block = self.create_block(
             height=len(self.chain),
@@ -28,6 +29,7 @@ class Blockchain(object):
             nonce=format(random.getrandbits(64), "x"),
             target=self.target,
             timestamp=time(),
+            maths=maths(len(self.chain)),
         )
 
         # Reset the list of pending transactions
@@ -37,7 +39,7 @@ class Blockchain(object):
 
     @staticmethod
     def create_block(
-        height, transactions, previous_hash, nonce, target, timestamp=None
+        height, transactions, previous_hash, nonce, target, timestamp=None, maths
     ):
         block = {
             "height": height,
@@ -46,6 +48,7 @@ class Blockchain(object):
             "nonce": nonce,
             "target": target,
             "timestamp": timestamp or time(),
+            "maths": maths,
         }
 
         # Get the hash of this new block, and add it to the block
